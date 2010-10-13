@@ -1,4 +1,6 @@
 import MySQLdb
+import warnings
+warnings.filterwarnings('ignore')
 
 CREATE_TABLE_QUERY = '''
 CREATE TABLE IF NOT EXISTS `Tickets64_%s` (
