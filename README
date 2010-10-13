@@ -1,0 +1,16 @@
+A Python+MySQL implementation of a UID ticketer (http://code.flickr.com/blog/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/).
+
+For reference:
+
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'passwd';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE ON uidticketer.* TO 'user'@'localhost';
+
+DROP DATABASE IF EXISTS uidticketer;
+CREATE DATABASE IF NOT EXISTS uidticketer;
+
+CREATE TABLE IF NOT EXISTS `Tickets64` (
+  `id` bigint(20) unsigned NOT NULL auto_increment,
+  `stub` char(1) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `stub` (`stub`)
+) ENGINE=MyISAM;
